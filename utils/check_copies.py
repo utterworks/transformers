@@ -78,6 +78,14 @@ LOCALIZED_READMES = {
             " {paper_authors}.{supplements}"
         ),
     },
+    "README_ja.md": {
+        "start_prompt": "🤗Transformersは現在、以下のアーキテクチャを提供しています",
+        "end_prompt": "1. 新しいモデルを投稿したいですか？",
+        "format_model_list": (
+            "**[{title}]({model_link})** (from {paper_affiliations}) released with the paper {paper_title_link} by"
+            " {paper_authors}.{supplements}"
+        ),
+    },
     "README_hd.md": {
         "start_prompt": "🤗 ट्रांसफॉर्मर वर्तमान में निम्नलिखित आर्किटेक्चर का समर्थन करते हैं",
         "end_prompt": "1. एक नए मॉडल में योगदान देना चाहते हैं?",
