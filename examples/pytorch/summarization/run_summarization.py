@@ -99,8 +99,8 @@ class ModelArguments:
         default="main",
         metadata={"help": "The specific model version to use (can be a branch name, tag name or commit id)."},
     )
-    use_auth_token: bool = field(
-        default=False,
+    use_auth_token: str = field(
+        default=None,
         metadata={
             "help": (
                 "Will use the token generated when running `huggingface-cli login` (necessary to use this script "
@@ -288,6 +288,10 @@ summarization_name_mapping = {
     "xsum": ("document", "summary"),
     "wiki_summary": ("article", "highlights"),
     "multi_news": ("document", "summary"),
+    "utterworks/consum_sample": ("dialogue", "summary"),
+    "consum_sample": ("dialogue", "summary"),
+    "utterworks/consum": ("dialogue", "summary"),
+    "consum": ("dialogue", "summary"),
 }
 
 
@@ -373,7 +377,7 @@ def main():
             data_args.dataset_name,
             data_args.dataset_config_name,
             cache_dir=model_args.cache_dir,
-            use_auth_token=True if model_args.use_auth_token else None,
+            use_auth_token=model_args.use_auth_token if model_args.use_auth_token else None,
         )
     else:
         data_files = {}
@@ -390,7 +394,7 @@ def main():
             extension,
             data_files=data_files,
             cache_dir=model_args.cache_dir,
-            use_auth_token=True if model_args.use_auth_token else None,
+            use_auth_token=model_args.model_args.use_auth_token if model_args.use_auth_token else None,
         )
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
