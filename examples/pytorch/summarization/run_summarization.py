@@ -268,6 +268,8 @@ summarization_name_mapping = {
     "consum_sample": ("dialogue", "summary"),
     "utterworks/consum": ("dialogue", "summary"),
     "consum": ("dialogue", "summary"),
+    "conv_resolution": ("dialogue", "summary"),
+    "utterworks/conv_resolution_sample": ("dialogue", "summary"),
 }
 
 
